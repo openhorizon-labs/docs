@@ -1,0 +1,38 @@
+---
+title: Perception
+description: From raw sensor streams to a structured understanding of the scene.
+icon: Eye
+---
+
+Perception is the first stage of the cognition loop: it turns raw camera, lidar, and
+IMU streams into a structured, machine-usable description of the scene.
+
+## What perception produces
+
+Each perception event describes the world at one moment:
+
+| Field | What it tells you |
+| --- | --- |
+| `objects` | Detected objects with class, confidence, and 3D position |
+| `surfaces` | Ground planes, walls, and traversable geometry |
+| `pose` | The machine's estimated position and orientation |
+| `motion` | Velocity estimates for the machine and tracked objects |
+
+## Design principles
+
+**Structured over raw.** Downstream stages never touch pixels or point clouds — they
+work with typed objects and geometry. This keeps memory and reasoning independent of
+the sensor suite.
+
+**Real time first.** Perception is budgeted per frame. When compute is tight, the
+pipeline degrades gracefully — lower-priority detectors shed load before core geometry
+and pose estimation do.
+
+**Sensor-agnostic.** The same event schema is produced whether the source is a single
+RGB camera, a full lidar rig, or a recorded log.
+
+## Next
+
+<Cards>
+  <Card title="Spatial memory" href="./spatial-memory" description="Persist perception into a queryable world model." />
+</Cards>

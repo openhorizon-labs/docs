@@ -1,0 +1,36 @@
+---
+title: Spatial memory
+description: A persistent, queryable map of places, things, and how they change.
+icon: Map
+---
+
+Spatial memory is what separates a machine that *sees* from a machine that
+*understands where it is*. It accumulates perception over time into a persistent world
+model the machine can query.
+
+## What spatial memory holds
+
+- **Places** — a topological and metric map of the environment
+- **Things** — objects the machine has observed, with their last known state and location
+- **Relationships** — what is on, inside, near, or attached to what
+- **Change** — a history of what appeared, moved, or disappeared, and when
+
+## Why it matters
+
+Live perception only answers "what is around me *right now*." Real tasks need more:
+
+- "Return to the loading dock" requires remembering places beyond sensor range.
+- "Find the pallet that was here this morning" requires object permanence.
+- "Something changed in aisle 3" requires comparing now against then.
+
+## Querying memory
+
+Memory is queryable by location, by object, and by time — so reasoning can ask
+questions like *"what traversable route reaches the dock?"* or *"where was this object
+last seen?"* without re-processing raw sensor history.
+
+## Next
+
+<Cards>
+  <Card title="Real-time reasoning" href="./reasoning" description="Plan and act on perception and memory together." />
+</Cards>

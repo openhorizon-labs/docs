@@ -1,0 +1,41 @@
+---
+title: Real-time reasoning
+description: Planning and acting on live context, within real hardware latency budgets.
+icon: Brain
+---
+
+Reasoning closes the cognition loop: it takes live perception and spatial memory and
+decides what the machine should do next — continuously, and fast enough for hardware
+in motion.
+
+## The contract
+
+Reasoning in a physical system is different from reasoning in a chat window:
+
+- **It never blocks.** The world keeps moving while the machine thinks. Decisions are
+  produced on a fixed cadence, using the best available context at that moment.
+- **It is grounded.** Every plan references real entities from memory — places the
+  machine has mapped, objects it has seen — not free-floating text.
+- **It degrades safely.** When confidence is low or context is stale, the output is a
+  conservative action (slow down, re-observe, ask), never a guess at full speed.
+
+## Fast and slow paths
+
+Reasoning runs at two speeds:
+
+1. **Reactive** — millisecond-scale responses to immediate perception: obstacle
+   avoidance, stability, safety stops.
+2. **Deliberative** — second-scale planning against spatial memory: routing, task
+   sequencing, and handling instructions expressed in natural language.
+
+The reactive path always has authority to override the deliberative one.
+
+## Back to the start
+
+Actions change the world, which changes what the machine senses — and the loop
+continues: **sense → remember → reason**.
+
+<Cards>
+  <Card title="Perception" href="./perception" description="Where the loop begins." />
+  <Card title="Quickstart" href="/docs/quickstart" description="Run the full loop on your own machine." />
+</Cards>

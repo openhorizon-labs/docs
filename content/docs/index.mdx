@@ -1,0 +1,70 @@
+---
+title: Overview
+description: Documentation for OpenHorizon — the cognitive layer for physical AI.
+icon: BookOpen
+full: true
+---
+
+<DocsHero
+  eyebrow="openhorizon documentation"
+  title="The cognitive layer for"
+  accent="physical AI"
+  subtitle="Give robots and autonomous machines perception, spatial memory, and real-time reasoning. Everything you need, from first install to production deployment."
+>
+  <BtnLink href="/docs/quickstart" variant="primary">Get started</BtnLink>
+  <BtnLink href="/docs/concepts/perception">Core concepts</BtnLink>
+  <BtnLink href="https://openhorizon.so">openhorizon.so ↗</BtnLink>
+</DocsHero>
+
+<HubGrid columns={2}>
+  <HubCard
+    href="/docs/quickstart"
+    art="quickstart"
+    tick="start here"
+    title="Quickstart"
+    description="Install the SDK and stream structured perception from a sample dataset in minutes."
+  />
+  <HubCard
+    href="/docs/concepts/perception"
+    art="perception"
+    tick="understand"
+    title="The cognition loop"
+    description="How sense → remember → reason turns raw sensors into grounded action."
+  />
+</HubGrid>
+
+## Core concepts
+
+Every OpenHorizon-powered machine runs the same loop: perception turns sensor streams
+into structure, spatial memory persists it into a world model, and reasoning plans
+against both.
+
+<HubGrid columns={3}>
+  <HubCard
+    href="/docs/concepts/perception"
+    art="perception"
+    tick="sense"
+    title="Perception"
+    description="From camera, lidar, and IMU streams to objects, surfaces, and motion."
+  />
+  <HubCard
+    href="/docs/concepts/spatial-memory"
+    art="memory"
+    tick="remember"
+    title="Spatial memory"
+    description="A persistent, queryable map of places, things, and how they change."
+  />
+  <HubCard
+    href="/docs/concepts/reasoning"
+    art="reasoning"
+    tick="reason"
+    title="Real-time reasoning"
+    description="Plans grounded in live context, within real hardware latency budgets."
+  />
+</HubGrid>
+
+## For your tools
+
+These docs are built to be read by machines too: every page has a **Copy Markdown**
+button, and the full corpus is available at [/llms.txt](/llms.txt) and
+[/llms-full.txt](/llms-full.txt) for agents and LLM pipelines.

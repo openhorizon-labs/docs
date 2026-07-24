@@ -1,0 +1,60 @@
+---
+title: Quickstart
+description: Install the OpenHorizon SDK and run your first perception pipeline.
+icon: Rocket
+---
+
+<Callout title="Starter content">
+  This quickstart is scaffolding for your docs — replace the package names and code with
+  your real SDK surface as it lands.
+</Callout>
+
+## Requirements
+
+- Python 3.10+ or Node.js 20+
+- A camera, recorded sensor log, or the bundled sample dataset
+- Optional: ROS 2 Humble or newer for robot integration
+
+## Install
+
+```bash tab="Python"
+pip install openhorizon
+```
+
+```bash tab="TypeScript"
+bun add @openhorizon/sdk
+```
+
+## Run your first pipeline
+
+Point the SDK at a sensor source and subscribe to structured perception events:
+
+```python tab="Python"
+from openhorizon import Pipeline
+
+pipeline = Pipeline.from_source("sample://warehouse-run-01")
+
+for event in pipeline.perception():
+    print(event.objects, event.pose)
+```
+
+```ts tab="TypeScript"
+import { Pipeline } from '@openhorizon/sdk';
+
+const pipeline = await Pipeline.fromSource('sample://warehouse-run-01');
+
+for await (const event of pipeline.perception()) {
+  console.log(event.objects, event.pose);
+}
+```
+
+You should see a stream of perception events: detected objects, estimated poses, and
+surface geometry, updated in real time.
+
+## Where to go next
+
+<Cards>
+  <Card title="Perception" href="/docs/concepts/perception" description="What the perception stream contains and how to configure it." />
+  <Card title="Spatial memory" href="/docs/concepts/spatial-memory" description="Persist what the machine sees into a queryable world model." />
+  <Card title="Real-time reasoning" href="/docs/concepts/reasoning" description="Close the loop: plan and act on live context." />
+</Cards>
