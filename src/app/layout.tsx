@@ -1,4 +1,5 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
+import { Analytics } from '@vercel/analytics/next';
 import './global.css';
 import { Hanken_Grotesk, JetBrains_Mono, Newsreader } from 'next/font/google';
 import type { Metadata } from 'next';
@@ -74,6 +75,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
     >
       <body className="flex flex-col min-h-screen font-sans antialiased">
         <RootProvider theme={{ enabled: false }}>{children}</RootProvider>
+        <Analytics />
       </body>
     </html>
   );
