@@ -28,14 +28,41 @@ const mono = JetBrains_Mono({
   weight: ['400', '500', '600', '700'],
 });
 
+const description =
+  'Documentation for OpenHorizon Labs: perception, spatial memory, and real-time reasoning that lets robots and autonomous machines understand and act in the physical world.';
+
 export const metadata: Metadata = {
-  title: {
-    template: `%s — ${appName} Docs`,
-    default: `${appName} Docs — The Cognitive Layer for Physical AI`,
-  },
-  description:
-    'Documentation for OpenHorizon Labs: perception, spatial memory, and real-time reasoning that lets robots and autonomous machines understand and act in the physical world.',
   metadataBase: new URL('https://docs.openhorizon.so'),
+  title: {
+    default: `${appName} Docs — The Cognitive Layer for Physical AI`,
+    template: `%s — ${appName} Docs`,
+  },
+  description,
+  keywords: [
+    'physical AI',
+    'robotics',
+    'cognitive layer',
+    'world model',
+    'embodied AI',
+    'perception',
+    'spatial reasoning',
+    'documentation',
+    'SDK',
+  ],
+  openGraph: {
+    title: `${appName} Docs — The Cognitive Layer for Physical AI`,
+    description:
+      'Perception, spatial memory, and real-time reasoning for machines that act in the real world — from first install to production deployment.',
+    url: 'https://docs.openhorizon.so',
+    siteName: `${appName} Docs`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${appName} Docs — The Cognitive Layer for Physical AI`,
+    description:
+      'Perception, spatial memory, and real-time reasoning for machines that act in the real world.',
+  },
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {

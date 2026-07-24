@@ -1,29 +1,25 @@
 import { getPageImageUrl, source } from '@/lib/source';
 import { notFound } from 'next/navigation';
-import { ImageResponse } from 'next/og';
-import { generate as DefaultImage } from 'fumadocs-ui/og';
-import { appName } from '@/lib/shared';
+import { docsOgImage } from '@/lib/og-image';
 
 export const revalidate = false;
 
+const sectionKickers: Record<string, string> = {
+  concepts: 'Core concepts',
+};
+
 export async function GET(_req: Request, { params }: RouteContext<'/og/docs/[...slug]'>) {
   const { slug } = await params;
-  const page = source.getPage(slug.slice(0, -1));
+  const pageSlugs = slug.slice(0, -1);
+  const page = source.getPage(pageSlugs);
   if (!page) notFound();
 
-  return new ImageResponse(
-    <DefaultImage
-      title={page.data.title}
-      description={page.data.description}
-      site={appName}
-      primaryColor="#0c8457"
-      primaryTextColor="#0c8457"
-    />,
-    {
-      width: 1200,
-      height: 630,
-    },
-  );
+  const kicker =
+    pageSlugs.length === 0
+      ? 'Documentation'
+      : (sectionKickers[pageSlugs[0]] ?? 'Getting started');
+
+  return docsOgImage({ title: page.data.title, kicker });
 }
 
 export function generateStaticParams() {
